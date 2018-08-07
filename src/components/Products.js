@@ -38,13 +38,14 @@ class Products extends Component {
     console.log(products);
     return (
       <View
-        key={products.item.id}
         style={{
           borderColor: "#66594a",
           borderWidth: 1,
           borderRadius: 5,
           width: "45%",
-          marginTop: 10
+          marginTop: 10,
+          marginLeft: 5,
+          marginRight: 5
         }}
       >
         <Image
@@ -67,12 +68,13 @@ class Products extends Component {
   render() {
     //2 5
     return (
-      <View style={{ flexDirection: "row" }}>
+      <View>
         {this.state.data_products.length > 0 && (
           <FlatList
             data={this.state.data_products}
-            keyExtractor={(item, id) => item.index}
+            keyExtractor={(item, id) => item.id}
             renderItem={this._renderProducts}
+            numColumns={2}
           />
         )}
       </View>

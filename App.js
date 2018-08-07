@@ -7,7 +7,7 @@ import Products from "./src/components/Products";
 class App extends Component {
   render() {
     return (
-      <View>
+      <View style={{ flex: 1 }}>
         <Header title="Ikea Shop" />
         <Products />
       </View>
