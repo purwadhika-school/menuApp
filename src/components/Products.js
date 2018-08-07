@@ -35,7 +35,7 @@ class Products extends Component {
   };
 
   _renderProducts = products => {
-    console.log(products);
+    const product_name = products.item.name.substr(0, 15);
     return (
       <View
         style={{
@@ -52,15 +52,12 @@ class Products extends Component {
           source={{ uri: products.item.image_uri }}
           style={{ width: 150, height: 150, resizeMode: "contain" }}
         />
-        <Text>{products.item.name}</Text>
-        <Text>{products.item.price}</Text>
-        <Text>
-          by {products.item.shop.name} {products.item.shop.city}
-        </Text>
-        <Image
-          source={{ uri: products.item.shop.reputation_image_uri }}
-          style={{ width: 100, height: 20, resizeMode: "contain" }}
-        />
+        <View style={{ marginLeft: 5, marginBottom: 10 }}>
+          <Text>{`${product_name}...`}</Text>
+          <Text style={{ fontWeight: "bold" }}>{products.item.price}</Text>
+          <Text>by {products.item.shop.name}</Text>
+          <Text>{products.item.shop.city}</Text>
+        </View>
       </View>
     );
   };
